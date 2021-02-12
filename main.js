@@ -8,7 +8,7 @@ var initial_dir = vec2(0, 0);
 var speed = 1;
 var dot_multiplier = 5;
 var noise_multiplier = 1;
-var noise_spread = 50;
+var noise_spread = rand(50, 200);
 var spawn_spread = 0;
 
 var wrap_to_sides = false;
@@ -45,6 +45,7 @@ function display() {
 			} else if(wrap_to_start) {
 				if(dot.pos.x < 0 || dot.pos.x > canvas.width-1 || dot.pos.y < 0 || dot.pos.y > canvas.height-1)
 					dot.pos = vec2(rand()*spawn_spread+canvas.width/2, rand()*spawn_spread+canvas.height/2)
+					dot.vel = vec2(rand(),rand());
 			} else {
 				if(dot.pos.x < 0 || dot.pos.x > canvas.width-1 || dot.pos.y < 0 || dot.pos.y > canvas.height-1) {
 					dot_arr.splice(i, 1);
